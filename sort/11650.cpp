@@ -1,23 +1,25 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main(){
-    int N;
-    vector<int> x;
-    vector<int> y;
+    int N, x, y;
+    vector<pair<int, int> > v;
 
     cin >> N;
 
     for(int i=0; i<N; i++){
-        int first, second;
-        cin >> first;
-        x.push_back(first);
-        cin >> second;
-        x.push_back(second);
+        cin >> x >> y;
+        v.push_back(make_pair(x,y));
     }
 
+    sort(v.begin(), v.end());
 
+    for(int i=0; i<N; i++){
+        cout << v[i].first << " " << v[i].second << "\n";
+    }
+    
     return 0;
 }
